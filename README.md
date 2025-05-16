@@ -1,4 +1,4 @@
-<img src="quincy-hall.png" alt="Quincy House" width="100%" />
+![Image](https://github.com/user-attachments/assets/08e9ec18-31cb-4968-b7a7-4f6aa7fd545c)
 
 # Ryan's Landing Page
 
