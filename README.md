@@ -1,4 +1,4 @@
-<img src="013902_1336566.jpg" alt="Quincy House" width="100%" />
+<img src="quincy-hall.png" alt="Quincy House" width="100%" />
 
 # Ryan's Landing Page
 
