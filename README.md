@@ -28,3 +28,5 @@ I'm currently involved in various **clubs/fellowships** on campus, including (bu
 - _Project Destined_ - worked with a team of real-estate valuation interns to price/pitch property in Newton, MA (won "Best Overall Pitch" out of 90+ teams program-wide).
 
 My personal hobbies outside of academics/extracurriculars include: basketball, house/alternative music, and Chiikawa! :3
+
+![](https://github-readme-stats.vercel.app/api?username=RyanZWhalen&theme=radical&hide_border=false&include_all_commits=true&count_private=true)<br/>
