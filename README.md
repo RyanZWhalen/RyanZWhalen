@@ -1,4 +1,4 @@
-![Quincy House](download.jpg)
+<img src="download.jpg" alt="Quincy House" width="100%" />
 
 # Ryan's Landing Page
 
