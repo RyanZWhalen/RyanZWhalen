@@ -1,4 +1,4 @@
-![alt text](download.png)
+![Quincy House](download.jpg)
 
 # Ryan's Landing Page
 
