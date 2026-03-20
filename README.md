@@ -6,7 +6,7 @@ Hello there! 👋
 
 My name is Ryan Whalen, an **Applied Mathematics** (Econ/CS specialization) and **Statistics** double-concentrator at **Harvard University**. 
 
-**Courses** I've taken thus far at Harvard include: CS 50, Expos 20, Econ 10A, Math 1B (Fall '24) & First-Year Seminar, Econ 50A, Math 21A, Gened 1179, & Math 101 (Spring '25)
+**Relevant Courses** I've taken thus far at Harvard include: CS50 (Introduction to Programming), CS1200 (Algorithms and Discrete Mathematics for Computer Science), MATH21A/21B (Calculus & Optimization/Linear Algebra & Differential Equation), Stat110/111 (Probability/Statistical Inference), ECON50 (Macroeconomic Policy and Big Data), and MATH101 (Logic and Proofs in Mathematics)
 
 Even though I surround myself now with tons of programming, finance, and mathematics-based involvements, I was a hard-core social sciences/humanities person in another life. 
 
