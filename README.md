@@ -19,6 +19,11 @@
     <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
   </a>
 </p>
+<p align="center">
+  <a href="https://www.ryanxwhalen.com/" target="_blank">
+    <img src="https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Personal Website" />
+  </a>
+</p>
 
 ---
 
@@ -46,7 +51,11 @@
 ### Skills & Tools
 
 <p align="left">
-  <img src="https://skillicons.dev/icons?i=python,r,js,html,css,git,github,vscode,linux" />
+  <img src="https://skillicons.dev/icons?i=python,c,cpp,java,javascript,html,css,r,stata,sql,mysql,ocaml,cs" />
+</p>
+
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=react,nodejs,flask,pandas,numpy,pytorch,tensorflow,opencv,junit,wordpress,materialui,fastapi,git,github,gitlab,docker,vscode,rstudio,azure,aws,figma" />
 </p>
 
 ---
@@ -65,8 +74,3 @@
 <p align="center">
   <i>Basketball • Alternative music • Chiikawa</i>
 </p>
-
-<img
-  src="https://github-readme-stats.vercel.app/api?username=RyanZWhalen&show_icons=true&theme=radical&hide_border=true&include_all_commits=true&count_private=true&hide=issues,prs,contribs"
-  alt="Ryan's GitHub stats"
-/>
