@@ -1,32 +1,72 @@
-![Image](https://github.com/user-attachments/assets/08e9ec18-31cb-4968-b7a7-4f6aa7fd545c)
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=26&pause=1000&center=true&vCenter=true&width=700&lines=Ryan+Whalen;Applied+Mathematics+%2B+Statistics;Harvard+University" alt="Typing SVG" />
+</p>
 
-# Ryan's Landing Page
+<h1 align="center">Hi, I'm Ryan 👋</h1>
 
-Hello there! 👋
+<p align="center">
+  Applied Mathematics and Statistics at Harvard University, interested in the intersection of mathematics, computing, finance, and social impact.
+</p>
 
-My name is Ryan Whalen, an **Applied Mathematics** (Econ/CS specialization) and **Statistics** double-concentrator at **Harvard University**. 
+<p align="center">
+  <a href="https://www.linkedin.com/in/YOUR-LINK">
+    <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="https://github.com/RyanZWhalen">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="mailto:YOUR_EMAIL">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+</p>
 
-**Relevant Courses** I've taken thus far at Harvard include: CS50 (Introduction to Programming), CS1200 (Algorithms and Discrete Mathematics for Computer Science), MATH21A/21B (Calculus & Optimization/Linear Algebra & Differential Equation), Stat110/111 (Probability/Statistical Inference), ECON50 (Macroeconomic Policy and Big Data), and MATH101 (Logic and Proofs in Mathematics)
+---
 
-Even though I surround myself now with tons of programming, finance, and mathematics-based involvements, I was a hard-core social sciences/humanities person in another life. 
+### About Me
 
-So, it's been my personal journey to explore the intersections and find the gems the lie between the two worlds! Would love to chat with anyone about any of these topics!
+- Harvard University undergraduate concentrating in Applied Mathematics and Statistics.
+- Interested in AI, finance, venture, research, and systems thinking.
+- I like building things that sit at the intersection of quantitative rigor and real-world impact.
 
-I'm currently involved in various **clubs/fellowships** on campus, including (but not limited to):
+### Highlights
 
-- [_Harvard University Capital Partners 💡_](https://www.harvardcap.org/)
-- [_Scholars of Finance 📈_](https://scholarsoffinance.org/)
-- [_Tech 4 Social Good 🌎_](https://socialgood.hcs.harvard.edu/)
-- [_Harvard University Machine Intelligence Community 🤖_](https://www.humic.ai/)
-- [_The Harvard Undergraduate Research Journal 🔬_](https://www.thurj.org/)
+- Harvard University Capital Partners.
+- Scholars of Finance.
+- Tech 4 Social Good.
+- Harvard Machine Intelligence Community.
+- The Harvard Undergraduate Research Journal.
 
-**Organiations & Projects** that I'm currently working at and on/previously have worked at and on:
+### Current Work
 
-- _University Research_ - built basic stock-market forecaster using random forests and decision trees (Stanford), secure AI platform for patient diagnostics/robust voice-activated healthcare assistant (Columbia), and currently working on large-scale cultural data collection and discovering multi-modal infrastructure for early-stage cancer detection through cell-slicing (Harvard).
-- _Orient Securities_ - built an automated productivity ecosystem, replicating tools such as Slack, Notion, and Monday.com, for trading/risk-management team.
-- _RevRoad Ventures_ - worked on automating startup sourcing and outreach using basic VBA scripts, Excel algorithms (JavaScript), and Gmail extensions (Python).
-- _Project Destined_ - worked with a team of real-estate valuation interns to price/pitch property in Newton, MA (won "Best Overall Pitch" out of 90+ teams program-wide).
+- University research in cultural data collection and multimodal infrastructure.
+- Automation and productivity systems for trading/risk-management workflows.
+- Startup sourcing and outreach automation.
+- Real estate valuation and pitch work.
 
-My personal hobbies outside of academics/extracurriculars include: basketball, house/alternative music, and Chiikawa! :3
+### Skills & Tools
 
-![](https://github-readme-stats.vercel.app/api?username=RyanZWhalen&theme=radical&hide_border=false&include_all_commits=true&count_private=true)<br/>
+<p align="left">
+  <img src="https://skillicons.dev/icons?i=python,r,js,html,css,git,github,vscode,linux" />
+</p>
+
+---
+
+<p align="center">
+  <img height="165" src="https://github-readme-stats.vercel.app/api?username=RyanZWhalen&show_icons=true&theme=radical&hide_border=true&hide=issues,prs,contribs" />
+  <img height="165" src="https://github-readme-streak-stats.herokuapp.com/?user=RyanZWhalen&theme=radical&hide_border=true" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=RyanZWhalen&layout=compact&theme=radical&hide_border=true" />
+</p>
+
+---
+
+<p align="center">
+  <i>Basketball • Alternative music • Chiikawa</i>
+</p>
+
+<img
+  src="https://github-readme-stats.vercel.app/api?username=RyanZWhalen&show_icons=true&theme=radical&hide_border=true&include_all_commits=true&count_private=true&hide=issues,prs,contribs"
+  alt="Ryan's GitHub stats"
+/>
