@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="banner.svg" alt="Ryan Whalen — Applied Mathematics + Statistics, Harvard University" width="100%">
+  <img src="banner.svg" alt="Ryan Whalen — Applied Mathematics + Statistics, Harvard University" width="50%">
 </p>
 
 <p align="center">
