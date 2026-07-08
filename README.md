@@ -4,8 +4,8 @@
 
 <p align="center">
   <a href="https://github.com/RyanZWhalen"><img src="https://img.shields.io/badge/GitHub-6D5AE6?style=flat&logo=github&logoColor=white" /></a>
-  <a href="https://www.linkedin.com/in/YOUR-LINK"><img src="https://img.shields.io/badge/LinkedIn-8B5CF6?style=flat&logo=linkedin&logoColor=white" /></a>
-  <a href="mailto:YOUR_EMAIL"><img src="https://img.shields.io/badge/Email-A855F7?style=flat&logo=gmail&logoColor=white" /></a>
+  <a href="https://www.linkedin.com/in/rxwhalen/"><img src="https://img.shields.io/badge/LinkedIn-8B5CF6?style=flat&logo=linkedin&logoColor=white" /></a>
+  <a href="mailto:rwhalen@college.harvard.edu"><img src="https://img.shields.io/badge/Email-A855F7?style=flat&logo=gmail&logoColor=white" /></a>
   <a href="https://www.ryanxwhalen.com/"><img src="https://img.shields.io/badge/Portfolio-C084FC?style=flat&logo=googlechrome&logoColor=white" /></a>
 </p>
 
