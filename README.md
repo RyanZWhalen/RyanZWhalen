@@ -15,11 +15,6 @@
 
 ---
 
-### ✦ About
-
-Undergraduate in Applied Mathematics + Statistics at Harvard University, interested in
-the intersection of mathematics, computing, finance, and social impact.
-
 ### ✦ Contribution graph
 
 <p align="center">
