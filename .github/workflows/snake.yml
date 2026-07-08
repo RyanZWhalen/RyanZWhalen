@@ -13,14 +13,13 @@ jobs:
     permissions:
       contents: write
     steps:
-      - name: Generate the snake SVGs (purple aurora palette)
+      - name: Generate the snake SVG (aurora palette)
         uses: Platane/snk@v3
         id: snake
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/snake-dark.svg?palette=github-dark&color_snake=%23F0A6FF&color_dots=%23241247,%234C1D95,%237C3AED,%23C084FC,%23F0A6FF
-            dist/snake-light.svg?color_snake=%237C3AED&color_dots=%23EDE4FB,%23C9B3F2,%23A855F7,%237C3AED,%235B21B6
+            dist/snake.svg?color_snake=%23F0A6FF&color_dots=%23EDE4FB,%23C9B3F2,%23A855F7,%237C3AED,%234C1D95
 
       - name: Push to the output branch
         uses: crazy-max/ghaction-github-pages@v4
