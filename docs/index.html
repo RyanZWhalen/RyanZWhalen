@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contribution Tetris</title>
+<style>
+  :root {
+    --bg: #0d1117;
+    --panel: #0d1117;
+    --border: #30363d;
+    --cell: #161b22;
+    --text: #e6edf3;
+    --muted: #7d8590;
+    --link: #2f81f7;
+    --g1: #0e4429; --g2: #006d32; --g3: #26a641; --g4: #39d353;
+    --cell-size: clamp(16px, 3.2vmin, 26px);
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/1.5 -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 24px 16px 40px;
+  }
+  .num { font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace; }
+
+  .wrap { width: 100%; max-width: 880px; }
+  h1 { font-size: 20px; font-weight: 600; margin-bottom: 4px; }
+  h1 .num { color: var(--g4); }
+  .subtitle { color: var(--muted); margin-bottom: 16px; }
+  kbd {
+    font: 11px ui-monospace, monospace; color: var(--text);
+    background: var(--cell); border: 1px solid var(--border);
+    border-bottom-width: 2px; border-radius: 4px; padding: 1px 5px;
+  }
+
+  .panel {
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 20px; background: var(--panel);
+    display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+  }
+  .side { display: flex; flex-direction: column; gap: 18px; min-width: 120px; }
+  .side h2 {
+    font-size: 11px; font-weight: 600; letter-spacing: .5px;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+  .stat .num { font-size: 24px; font-weight: 700; color: var(--g4); display: block; }
+  .stat span:last-child { color: var(--muted); font-size: 12px; }
+
+  .grid { display: grid; gap: 4px; }
+  #board {
+    grid-template-columns: repeat(10, var(--cell-size));
+    grid-auto-rows: var(--cell-size);
+    position: relative;
+  }
+  .mini {
+    grid-template-columns: repeat(4, 13px);
+    grid-auto-rows: 13px;
+  }
+  .cell {
+    background: var(--cell);
+    border-radius: 3px;
+    outline: 1px solid rgba(240,246,252,.07);
+    outline-offset: -1px;
+  }
+  .cell.g1 { background: var(--g1); } .cell.g2 { background: var(--g2); }
+  .cell.g3 { background: var(--g3); } .cell.g4 { background: var(--g4); }
+  .cell.live { background: var(--g4); outline-color: rgba(240,246,252,.3); }
+  .cell.ghost { outline: 1.5px dashed var(--g2); outline-offset: -1.5px; }
+  .cell.clearing { animation: pulse .28s ease 2; }
+  @keyframes pulse { 50% { filter: brightness(2.2); } }
+  @media (prefers-reduced-motion: reduce) { .cell.clearing { animation: none; filter: brightness(1.8); } }
+
+  #overlay {
+    position: absolute; inset: 0; border-radius: 6px;
+    background: rgba(13,17,23,.88);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 10px; text-align: center; padding: 20px;
+  }
+  #overlay.hidden { display: none; }
+  #overlay .big { font-size: 20px; font-weight: 600; }
+  #overlay .muted { color: var(--muted); font-size: 13px; }
+  button {
+    font: 600 14px/1 inherit; color: #fff;
+    background: #238636; border: 1px solid rgba(240,246,252,.1);
+    border-radius: 6px; padding: 9px 18px; cursor: pointer;
+  }
+  button:hover { background: #2ea043; }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+
+  .legend {
+    display: flex; align-items: center; gap: 4px;
+    color: var(--muted); font-size: 12px; margin-top: 14px;
+    justify-content: flex-end;
+  }
+  .legend i { width: 11px; height: 11px; border-radius: 2px; display: inline-block; outline: 1px solid rgba(240,246,252,.07); outline-offset: -1px; }
+  .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+  .joke { color: var(--link); font-size: 12px; text-decoration: none; margin-top: 14px; display: inline-block; cursor: help; }
+  .joke:hover { text-decoration: underline; }
+
+  .touch { display: none; gap: 10px; margin-top: 18px; justify-content: center; flex-wrap: wrap; }
+  .touch button { background: var(--cell); border: 1px solid var(--border); font-size: 18px; padding: 12px 18px; }
+  @media (hover: none) and (pointer: coarse) { .touch { display: flex; } .keys { display: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1><span class="num" id="headline">0</span> contributions in the last year</h1>
+  <p class="subtitle">It's Tetris. Every point is a contribution. Don't break the streak.</p>
+
+  <div class="panel">
+    <div class="side">
+      <div><h2>Hold <kbd>C</kbd></h2><div class="grid mini" id="hold"></div></div>
+      <div class="stat"><h2>Contributions</h2><span class="num" id="score">0</span><span>this game</span></div>
+      <div class="stat"><h2>Rows cleared</h2><span class="num" id="lines">0</span><span>level <span class="num" id="level">1</span></span></div>
+    </div>
+
+    <div style="position:relative">
+      <div class="grid" id="board"></div>
+      <div id="overlay">
+        <div class="big" id="ov-title">Contribution Tetris</div>
+        <div class="muted" id="ov-sub">Fill rows to farm fake green squares.</div>
+        <button id="ov-btn">Start game</button>
+        <div class="muted keys"><kbd>←</kbd><kbd>→</kbd> move · <kbd>↑</kbd>/<kbd>X</kbd> rotate · <kbd>Z</kbd> counter‑rotate<br><kbd>↓</kbd> soft drop · <kbd>Space</kbd> hard drop · <kbd>C</kbd> hold · <kbd>P</kbd> pause</div>
+      </div>
+    </div>
+
+    <div class="side">
+      <div><h2>Next</h2>
+        <div class="grid mini" id="next0" style="margin-bottom:10px"></div>
+        <div class="grid mini" id="next1" style="margin-bottom:10px"></div>
+        <div class="grid mini" id="next2"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-row">
+    <a class="joke" title="One contribution = one point. This is legally binding." href="#" onclick="return false">Learn how we count contributions</a>
+    <div class="legend">Less <i style="background:var(--cell)"></i><i style="background:var(--g1)"></i><i style="background:var(--g2)"></i><i style="background:var(--g3)"></i><i style="background:var(--g4)"></i> More</div>
+  </div>
+
+  <div class="touch">
+    <button data-k="left" aria-label="Move left">⬅️</button>
+    <button data-k="rotate" aria-label="Rotate">🔄</button>
+    <button data-k="right" aria-label="Move right">➡️</button>
+    <button data-k="down" aria-label="Soft drop">⬇️</button>
+    <button data-k="drop" aria-label="Hard drop">💥</button>
+    <button data-k="hold" aria-label="Hold piece">🤲</button>
+  </div>
+</div>
+
+<script>
+(() => {
+  const W = 10, H = 20;
+  const GREEN = { Z: 'g1', T: 'g2', L: 'g2', O: 'g3', J: 'g3', S: 'g4', I: 'g4' };
+  const PIECES = {
+    I: { size: 4, cells: [[0,1],[1,1],[2,1],[3,1]] },
+    O: { size: 2, cells: [[0,0],[1,0],[0,1],[1,1]] },
+    T: { size: 3, cells: [[1,0],[0,1],[1,1],[2,1]] },
+    S: { size: 3, cells: [[1,0],[2,0],[0,1],[1,1]] },
+    Z: { size: 3, cells: [[0,0],[1,0],[1,1],[2,1]] },
+    J: { size: 3, cells: [[0,0],[0,1],[1,1],[2,1]] },
+    L: { size: 3, cells: [[2,0],[0,1],[1,1],[2,1]] },
+  };
+  const SCORES = [0, 100, 300, 500, 800];
+
+  // --- DOM setup ---
+  const boardEl = document.getElementById('board');
+  const cells = [];
+  for (let i = 0; i < W * H; i++) {
+    const d = document.createElement('div');
+    d.className = 'cell';
+    boardEl.appendChild(d);
+    cells.push(d);
+  }
+  const minis = {};
+  for (const id of ['hold', 'next0', 'next1', 'next2']) {
+    const el = document.getElementById(id);
+    minis[id] = [];
+    for (let i = 0; i < 16; i++) {
+      const d = document.createElement('div');
+      d.className = 'cell';
+      el.appendChild(d);
+      minis[id].push(d);
+    }
+  }
+  const $ = (id) => document.getElementById(id);
+
+  // --- game state ---
+  let board, piece, queue, hold, canHold, score, lines, over, paused, running;
+  let dropTimer = 0, lastTime = 0, clearingRows = [];
+
+  function bag() {
+    const b = Object.keys(PIECES);
+    for (let i = b.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [b[i], b[j]] = [b[j], b[i]];
+    }
+    return b;
+  }
+  function rotCells(type, rot) {
+    const { size, cells } = PIECES[type];
+    let out = cells;
+    for (let r = 0; r < ((rot % 4) + 4) % 4; r++) out = out.map(([x, y]) => [size - 1 - y, x]);
+    return out;
+  }
+  const abs = (p) => rotCells(p.type, p.rot).map(([x, y]) => [x + p.x, y + p.y]);
+  const hit = (p) => abs(p).some(([x, y]) => x < 0 || x >= W || y >= H || (y >= 0 && board[y][x]));
+
+  function spawn() {
+    if (queue.length < 8) queue.push(...bag());
+    const type = queue.shift();
+    piece = { type, rot: 0, x: type === 'O' ? 4 : 3, y: type === 'I' ? -1 : 0 };
+    canHold = true;
+    if (hit(piece)) endGame();
+  }
+  function lock() {
+    for (const [x, y] of abs(piece)) {
+      if (y < 0) return endGame();
+      board[y][x] = piece.type;
+    }
+    const full = [];
+    for (let y = 0; y < H; y++) if (board[y].every(Boolean)) full.push(y);
+    if (full.length) {
+      clearingRows = full;
+      draw();
+      const wait = matchMedia('(prefers-reduced-motion: reduce)').matches ? 120 : 560;
+      running = false;
+      setTimeout(() => {
+        board = board.filter((_, y) => !full.includes(y));
+        while (board.length < H) board.unshift(Array(W).fill(0));
+        const level = Math.floor(lines / 10);
+        lines += full.length;
+        score += SCORES[full.length] * (level + 1);
+        clearingRows = [];
+        spawn();
+        if (!over) { running = true; lastTime = performance.now(); requestAnimationFrame(loop); }
+        draw();
+      }, wait);
+    } else {
+      spawn();
+    }
+  }
+  function move(k) {
+    if (over || paused || !piece || clearingRows.length) return;
+    if (k === 'left' || k === 'right') {
+      const t = { ...piece, x: piece.x + (k === 'left' ? -1 : 1) };
+      if (!hit(t)) piece = t;
+    } else if (k === 'rotate' || k === 'ccw') {
+      for (const dx of [0, -1, 1, -2, 2]) {
+        const t = { ...piece, rot: piece.rot + (k === 'rotate' ? 1 : 3), x: piece.x + dx };
+        if (!hit(t)) { piece = t; break; }
+      }
+    } else if (k === 'down') {
+      const t = { ...piece, y: piece.y + 1 };
+      if (!hit(t)) { piece = t; score += 1; dropTimer = 0; } else lock();
+    } else if (k === 'drop') {
+      let n = 0;
+      while (!hit({ ...piece, y: piece.y + 1 })) { piece.y++; n++; }
+      score += 2 * n;
+      lock();
+    } else if (k === 'hold') {
+      if (!canHold) return;
+      const t = piece.type;
+      if (hold) queue.unshift(hold);
+      hold = t;
+      spawn();
+      canHold = false;
+    }
+    draw();
+  }
+
+  function drawMini(id, type) {
+    minis[id].forEach((d) => (d.className = 'cell'));
+    if (!type) return;
+    for (const [x, y] of PIECES[type].cells) minis[id][y * 4 + x].classList.add(GREEN[type], 'live');
+  }
+  function draw() {
+    for (let y = 0; y < H; y++)
+      for (let x = 0; x < W; x++) {
+        const d = cells[y * W + x];
+        d.className = 'cell';
+        if (board[y][x]) d.classList.add(GREEN[board[y][x]]);
+        if (clearingRows.includes(y)) d.classList.add('clearing');
+      }
+    if (piece && !clearingRows.length) {
+      let g = { ...piece };
+      while (!hit({ ...g, y: g.y + 1 })) g.y++;
+      if (g.y !== piece.y)
+        for (const [x, y] of abs(g)) if (y >= 0) cells[y * W + x].classList.add('ghost');
+      for (const [x, y] of abs(piece)) if (y >= 0) cells[y * W + x].className = 'cell live';
+    }
+    drawMini('hold', hold);
+    drawMini('next0', queue[0]); drawMini('next1', queue[1]); drawMini('next2', queue[2]);
+    $('score').textContent = score.toLocaleString('en-US');
+    $('headline').textContent = score.toLocaleString('en-US');
+    $('lines').textContent = lines;
+    $('level').textContent = Math.floor(lines / 10) + 1;
+  }
+
+  function loop(t) {
+    if (!running) return;
+    const dt = t - lastTime;
+    lastTime = t;
+    if (!paused && !clearingRows.length) {
+      dropTimer += dt;
+      const interval = Math.max(80, 800 - Math.floor(lines / 10) * 70);
+      if (dropTimer > interval) { dropTimer = 0; move('down'); }
+    }
+    requestAnimationFrame(loop);
+  }
+
+  function overlay(title, sub, btn) {
+    $('ov-title').textContent = title;
+    $('ov-sub').textContent = sub;
+    $('ov-btn').textContent = btn;
+    $('overlay').classList.remove('hidden');
+  }
+  function endGame() {
+    over = true; running = false; piece = null;
+    overlay('💀 Your streak ended', `${score.toLocaleString('en-US')} contributions · ${lines} rows cleared`, 'Rebuild the streak');
+  }
+  function start() {
+    board = Array.from({ length: H }, () => Array(W).fill(0));
+    queue = bag(); hold = null; canHold = true;
+    score = 0; lines = 0; over = false; paused = false; clearingRows = [];
+    spawn();
+    $('overlay').classList.add('hidden');
+    draw();
+    running = true; dropTimer = 0; lastTime = performance.now();
+    requestAnimationFrame(loop);
+  }
+  function togglePause() {
+    if (over || !running) return;
+    paused = !paused;
+    if (paused) overlay('⏸️ Paused', 'The streak is safe. For now.', 'Resume');
+    else $('overlay').classList.add('hidden');
+  }
+
+  $('ov-btn').addEventListener('click', () => (paused ? togglePause() : start()));
+  document.querySelectorAll('.touch button').forEach((b) =>
+    b.addEventListener('click', () => move(b.dataset.k)));
+
+  const KEYS = {
+    ArrowLeft: 'left', ArrowRight: 'right', ArrowDown: 'down',
+    ArrowUp: 'rotate', x: 'rotate', X: 'rotate', z: 'ccw', Z: 'ccw',
+    ' ': 'drop', c: 'hold', C: 'hold',
+  };
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'p' || e.key === 'P') return togglePause();
+    if (e.key === 'r' || e.key === 'R') return start();
+    if (e.key === 'Enter' && (over || !running)) return start();
+    const k = KEYS[e.key];
+    if (k) { e.preventDefault(); move(k); }
+  });
+
+  draw();
+})();
+</script>
+</body>
+</html>

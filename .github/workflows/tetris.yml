@@ -1,0 +1,49 @@
+name: Tetris move
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+# Serialize moves so two simultaneous players can't race each other.
+concurrency:
+  group: tetris
+  cancel-in-progress: false
+
+jobs:
+  move:
+    if: startsWith(github.event.issue.title, 'tetris|')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Apply move
+        id: play
+        run: node game/play.js "${{ github.event.issue.title }}" "${{ github.event.issue.user.login }}"
+
+      - name: Commit result
+        run: |
+          git config user.name "tetris-bot"
+          git config user.email "actions@github.com"
+          git add game/state.json assets/board.svg README.md
+          git diff --cached --quiet || git commit -m "🎮 ${{ github.event.issue.title }} by @${{ github.event.issue.user.login }}"
+          git pull --rebase origin main
+          git push
+
+      - name: Thank the player and close the issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue comment ${{ github.event.issue.number }} \
+            --repo ${{ github.repository }} \
+            --body "Move played! 🟩 The board updates in ~30s (refresh the profile). Thanks for playing, @${{ github.event.issue.user.login }}!"
+          gh issue close ${{ github.event.issue.number }} --repo ${{ github.repository }}
