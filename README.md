@@ -20,9 +20,3 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/RyanZWhalen/RyanZWhalen/output/snake.svg" alt="A snake eating my GitHub contributions" />
 </p>
-
----
-
-<p align="center">
-  <i>Basketball · Alternative music · Chiikawa</i>
-</p>
