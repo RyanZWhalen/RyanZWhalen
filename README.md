@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <i>Building where quantitative rigor meets real-world impact — mathematics, computing, finance &amp; social good.</i>
+  <i>A society grows great when the old plant trees whose shade they know they shall never sit in.</i>
 </p>
 
 ---
