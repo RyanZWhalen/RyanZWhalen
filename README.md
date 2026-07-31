@@ -1,4 +1,6 @@
-<img src="./assets/wordmark.svg" width="620" alt="RYAN WHALEN">
+<p align="center">
+  <img src="./assets/wordmark.svg" width="620" alt="RYAN WHALEN">
+</p>
 
 <p align="center">
   <a href="https://github.com/RyanZWhalen"><img src="https://img.shields.io/badge/GitHub-6D5AE6?style=flat&logo=github&logoColor=white" /></a>
