@@ -1,68 +1,67 @@
+<div align="center">
 
-Wordmark · SVG
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 320" role="img" aria-label="RYAN WHALEN">
-  <style>
-    text {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
-      font-size: 15px;
-      white-space: pre;
-    }
-    .ryan   { fill: #f5f3ff; }
-    .whalen { fill: #a78bfa; }
-    .ghost  { fill: #2dd4a8; opacity: 0.75; }
-    @keyframes flicker {
-      0%, 91% { opacity: 0.75; }
-      92%     { opacity: 0.25; }
-      94%     { opacity: 0.9; }
-      96%     { opacity: 0.55; }
-      100%    { opacity: 0.75; }
-    }
-    .ghost { animation: flicker 7s steps(1) infinite; }
-    @media (prefers-reduced-motion: reduce) {
-      .ghost { animation: none; }
-    }
-  </style>
- 
-  <rect width="620" height="320" fill="#0d0d12"/>
- 
-  <!-- RYAN -->
-  <g class="ryan">
-    <text xml:space="preserve" x="28" y="48">██████╗ ██╗   ██╗ █████╗ ███╗   ██╗</text>
-    <text xml:space="preserve" x="28" y="66">██╔══██╗╚██╗ ██╔╝██╔══██╗████╗  ██║</text>
-    <text xml:space="preserve" x="28" y="84">██████╔╝ ╚████╔╝ ███████║██╔██╗ ██║</text>
-    <text xml:space="preserve" x="28" y="102">██╔══██╗  ╚██╔╝  ██╔══██║██║╚██╗██║</text>
-    <text xml:space="preserve" x="28" y="120">██║  ██║   ██║   ██║  ██║██║ ╚████║</text>
-    <text xml:space="preserve" x="28" y="138">╚═╝  ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═══╝</text>
-  </g>
- 
-  <!-- WHALEN ghost layer (green-teal, offset) -->
-  <g class="ghost" transform="translate(32,166)">
-    <text xml:space="preserve" x="4" y="3">██╗    ██╗██╗  ██╗ █████╗ ██╗     ███████╗███╗   ██╗</text>
-    <text xml:space="preserve" x="4" y="21">██║    ██║██║  ██║██╔══██╗██║     ██╔════╝████╗  ██║</text>
-    <text xml:space="preserve" x="4" y="39">██║ █╗ ██║███████║███████║██║     █████╗  ██╔██╗ ██║</text>
-    <text xml:space="preserve" x="4" y="57">██║███╗██║██╔══██║██╔══██║██║     ██╔══╝  ██║╚██╗██║</text>
-    <text xml:space="preserve" x="4" y="75">╚███╔███╔╝██║  ██║██║  ██║███████╗███████╗██║ ╚████║</text>
-    <text xml:space="preserve" x="4" y="93"> ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝</text>
-  </g>
- 
-  <!-- WHALEN main layer (purple) -->
-  <g class="whalen" transform="translate(28,163)">
-    <text xml:space="preserve" x="0" y="0">██╗    ██╗██╗  ██╗ █████╗ ██╗     ███████╗███╗   ██╗</text>
-    <text xml:space="preserve" x="0" y="18">██║    ██║██║  ██║██╔══██╗██║     ██╔════╝████╗  ██║</text>
-    <text xml:space="preserve" x="0" y="36">██║ █╗ ██║███████║███████║██║     █████╗  ██╔██╗ ██║</text>
-    <text xml:space="preserve" x="0" y="54">██║███╗██║██╔══██║██╔══██║██║     ██╔══╝  ██║╚██╗██║</text>
-    <text xml:space="preserve" x="0" y="72">╚███╔███╔╝██║  ██║██║  ██║███████╗███████╗██║ ╚████║</text>
-    <text xml:space="preserve" x="0" y="90"> ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝╚═╝  ╚═══╝</text>
-  </g>
- 
-  <!-- scanlines -->
-  <defs>
-    <pattern id="scan" width="4" height="4" patternUnits="userSpaceOnUse">
-      <rect width="4" height="2" fill="#000000" opacity="0.28"/>
-    </pattern>
-  </defs>
-  <rect width="620" height="320" fill="url(#scan)"/>
-</svg>
+```
+┌──────────────────────────────────────────────────────────┐
+│  個人終端機 · 已連線          00 / INDEX / 索引          │
+└──────────────────────────────────────────────────────────┘
+```
+
+<img src="./assets/wordmark.svg" width="620" alt="RYAN WHALEN">
+
+![RESEARCHER](https://img.shields.io/badge/RESEARCHER-0d0d0d?style=for-the-badge&labelColor=0d0d0d&color=7c3aed)
+![ENGINEER](https://img.shields.io/badge/ENGINEER-0d0d0d?style=for-the-badge&labelColor=0d0d0d&color=22d3ee)
+![HARVARD](https://img.shields.io/badge/HARVARD-0d0d0d?style=for-the-badge&labelColor=0d0d0d&color=a78bfa)
+
+```
+所在地 / LOC ......... CAMBRIDGE, MA
+主修   / FIELD ....... APPLIED MATH + STATISTICS · HARVARD
+狀態   / STATUS ...... OPEN TO WORK
+更新   / UPD ......... 2026.07
+```
+
+[![GitHub](https://img.shields.io/badge/GITHUB-0d0d0d?style=for-the-badge&logo=github&logoColor=a78bfa)](https://github.com/RyanZWhalen)
+[![LinkedIn](https://img.shields.io/badge/LINKEDIN-0d0d0d?style=for-the-badge&logo=linkedin&logoColor=22d3ee)](YOUR_LINKEDIN_URL)
+[![Email](https://img.shields.io/badge/EMAIL-0d0d0d?style=for-the-badge&logo=gmail&logoColor=a78bfa)](mailto:rwhalen@college.harvard.edu)
+[![Portfolio](https://img.shields.io/badge/PORTFOLIO-0d0d0d?style=for-the-badge&logo=googlechrome&logoColor=22d3ee)](YOUR_PORTFOLIO_URL)
+
+```
+RESEARCH · PROJECTS · WRITING / 正在製作中 / NOW BUILDING / NO COOKIES NO TRACKING NO NEWSLETTER
+```
+
+</div>
+
+```c
+// A society grows great when the old plant trees
+// whose shade they know they shall never sit in.
+```
+
+---
+
+## 01 研究 / NOW
+
+```
+編號    SUBJECT                                狀態
+────    ────────────────────────────────────   ──────
+N-01    ML systems / inference internals       進行中
+N-02    Quantitative finance                   進行中
+N-03    Building things that ship              長期
+```
+
+---
+
+## 02 貢獻 / CONTRIBUTION GRAPH
+
+<!-- keep your existing contribution-graph embed line here -->
+
+---
+
+<div align="center">
+
+```
+EST. 2026 / CAMBRIDGE NODE 04 / 歡迎光臨 · 未完成的頁面
+```
+
+</div>
 
 <p align="center">
   <a href="https://github.com/RyanZWhalen"><img src="https://img.shields.io/badge/GitHub-6D5AE6?style=flat&logo=github&logoColor=white" /></a>
